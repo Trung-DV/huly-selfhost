@@ -157,5 +157,8 @@ volumes:
   # These named volumes are used when custom volume paths are not specified
   # If VOLUME_*_PATH variables are set, these volumes will be ignored
   db:
+    external: true
   elastic:
+    external: true
   files:
+    external: true
