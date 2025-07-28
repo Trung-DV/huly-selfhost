@@ -14,14 +14,14 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - ${VOLUME_DB_PATH:-db}:/data/db
+      - ${VOLUME_DB_PATH}:/data/db
     restart: unless-stopped
 
   minio:
     image: "minio/minio"
     command: server /data --address ":9000" --console-address ":9001"
     volumes:
-      - ${VOLUME_FILES_PATH:-files}:/data
+      - ${VOLUME_FILES_PATH}:/data
     restart: unless-stopped
 
   elastic:
@@ -157,8 +157,5 @@ volumes:
   # These named volumes are used when custom volume paths are not specified
   # If VOLUME_*_PATH variables are set, these volumes will be ignored
   db:
-    external: true
   elastic:
-    external: true
   files:
-    external: true
