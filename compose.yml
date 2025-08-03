@@ -1,4 +1,4 @@
-name: ${DOCKER_NAME:-123}
+name: ${DOCKER_NAME}
 services:
   nginx:
     image: "nginx:1.21.3"
@@ -30,7 +30,7 @@ services:
       /bin/sh -c "./bin/elasticsearch-plugin list | grep -q ingest-attachment || yes | ./bin/elasticsearch-plugin install --silent ingest-attachment;
       /usr/local/bin/docker-entrypoint.sh eswrapper"
     volumes:
-      - ${VOLUME_ELASTIC_PATH}:/usr/share/elasticsearch/data
+      - ${VOLUME_ELASTIC_PATH:-elastic}:/usr/share/elasticsearch/data
     environment:
       - ELASTICSEARCH_PORT_NUMBER=9200
       - BITNAMI_DEBUG=true
