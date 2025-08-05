@@ -8,6 +8,7 @@ services:
       - NAME_ENV=${NAME:-trung1}
     volumes:
       - ${VOLUME_DB_PATH:-db}:/data/db
+      - ${VOLUME_DB_PATH}:/data/db1
     
 volumes:
   # These named volumes are used when custom volume paths are not specified
