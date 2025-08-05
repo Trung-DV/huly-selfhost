@@ -5,7 +5,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - NAME_ENV=${NAME:-trung}
+      - NAME_ENV=${NAME:-trung1}
     volumes:
       - ${VOLUME_DB_PATH:-db}:/data/db
     
